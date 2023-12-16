@@ -3,6 +3,7 @@ package at.campus02.swe;
 public interface Calculator {
 
     enum Operation {
+
         add, sub, mul, div, mod
     };
 
