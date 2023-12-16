@@ -53,9 +53,6 @@ public class CalculatorTest {
     }
 
 
-
-
-
     //
     @Test(expected = CalculatorException.class)
     public void testPopOnEmptyStack() throws Exception {
