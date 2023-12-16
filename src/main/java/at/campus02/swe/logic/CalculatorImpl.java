@@ -28,8 +28,8 @@ public class CalculatorImpl implements Calculator {
                 return c;
             case mod:
                 double d = a % b;
-                if(Double.isInfinite(d))
-                    throw new CalculatorException("Modulo zero!");
+                if(b == 0)
+                    throw new CalculatorException("Division by zero");
                 return d;
             case mul:
                 return a * b;
