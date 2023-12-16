@@ -26,6 +26,8 @@ public class CalculatorImpl implements Calculator {
                 if (Double.isInfinite(c))
                     throw new CalculatorException("Division by zero");
                 return c;
+            case mod:
+                return a % b;
             case mul:
                 return a * b;
         }
