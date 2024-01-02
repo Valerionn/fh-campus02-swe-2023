@@ -28,12 +28,16 @@ public class CalculatorImpl implements Calculator {
                 return c;
             case mod:
                 double d = a % b;
-                if(b == 0)
+                if (b == 0)
                     throw new CalculatorException("Division by zero");
                 return d;
             case mul:
                 return a * b;
+            case sin:
+                a = pop();
+                return Math.sin(Math.toRadians(a));
         }
+
         return 0;
     }
 
