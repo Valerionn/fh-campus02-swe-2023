@@ -53,9 +53,6 @@ public class CalculatorTest {
     }
 
 
-
-
-
     //
     @Test(expected = CalculatorException.class)
     public void testPopOnEmptyStack() throws Exception {
@@ -98,7 +95,7 @@ public class CalculatorTest {
 
         calc.push(10);
         calc.push(7);
-        assertEquals(3,calc.perform(Operation.mod),0);
+        assertEquals(3, calc.perform(Operation.mod), 0);
 
 
     }
@@ -120,4 +117,27 @@ public class CalculatorTest {
             assertEquals("Division by zero", e.getMessage());
         }
     }
+
+
+    @Test
+    public void testSinOperation() throws CalculatorException {
+        Calculator calc = new CalculatorImpl();
+        calc.push(30);
+        calc.push(0);
+        double result = calc.perform(Operation.sin);
+
+        assertEquals(Math.sin(Math.toRadians(30)), result, 0.0001);
+    }
+
+    @Test
+    public void testCosOperation() throws CalculatorException {
+        Calculator calc = new CalculatorImpl();
+        calc.push(60);
+        calc.push(0);
+        double result = calc.perform(Operation.cos);
+
+        assertEquals(Math.cos(Math.toRadians(60)), result, 0.0001);
+    }
+
+
 }
