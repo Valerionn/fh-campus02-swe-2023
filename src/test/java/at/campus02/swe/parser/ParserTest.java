@@ -55,4 +55,20 @@ public class ParserTest {
 
         verifyNoMoreInteractions(cal);
     }
+
+    @Test
+    public void testParserSinCos() throws Exception {
+        Calculator cal = mock(Calculator.class);
+
+        Parser parser = new Parser(cal);
+        parser.parse(new File("src/test/resources/testSinCos01.xml"));
+
+        verify(cal).push(45.0);
+        verify(cal).perform(Operation.sin);
+        verify(cal).push(60.0);
+        verify(cal).perform(Operation.cos);
+
+        verifyNoMoreInteractions(cal);
+    }
+
 }

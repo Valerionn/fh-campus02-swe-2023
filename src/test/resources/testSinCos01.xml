@@ -1,0 +1,6 @@
+<operations>
+    <push value="45.0"/>
+    <operation value="sin"/>
+    <push value="60.0"/>
+    <operation value="cos"/>
+</operations>
