@@ -36,6 +36,9 @@ public class CalculatorImpl implements Calculator {
             case sin:
                 a = pop();
                 return Math.sin(Math.toRadians(a));
+            case cos:
+                a = pop();
+                return Math.cos(Math.toRadians(a));
         }
 
         return 0;
