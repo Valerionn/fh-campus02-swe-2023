@@ -13,6 +13,12 @@ public class CalculatorImpl implements Calculator {
     @Override
     public double perform(Operation op) throws CalculatorException {
 
+        switch (op){
+            case sin -> push(0);
+            case cos -> push(0);
+        }
+
+
         double b = pop();
         double a = pop();
 
