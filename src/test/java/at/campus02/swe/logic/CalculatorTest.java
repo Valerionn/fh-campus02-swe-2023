@@ -1,13 +1,12 @@
 package at.campus02.swe.logic;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 
 import at.campus02.swe.Calculator;
 import at.campus02.swe.CalculatorException;
 import at.campus02.swe.Calculator.Operation;
+
+import static org.junit.Assert.*;
 
 public class CalculatorTest {
 
@@ -96,6 +95,28 @@ public class CalculatorTest {
         double result = calc.perform(Operation.mod);
 
         assertEquals(0, result, 0);
+
+    }
+    @Test
+    public void testSimpleModuloOperation2() throws Exception {
+
+        Calculator calc = new CalculatorImpl();
+        calc.push(10.0);
+        calc.push(3);
+        double result = calc.perform(Operation.mod);
+
+        assertEquals(1, result, 0);
+
+    }
+    @Test
+    public void testSimpleModuloOperationNegative() throws Exception {
+
+        Calculator calc = new CalculatorImpl();
+        calc.push(6.0);
+        calc.push(2);
+        double result = calc.perform(Operation.mod);
+
+        assertNotEquals(1,result,0);
 
     }
 }
