@@ -119,4 +119,26 @@ public class CalculatorTest {
         assertNotEquals(1,result,0);
 
     }
+
+    @Test
+    public void testSimplesinTest90Degrees() throws Exception {
+
+        Calculator calc = new CalculatorImpl();
+        calc.push(90.0);
+        double result = calc.perform(Operation.sin);
+
+        assertNotEquals(1,result,0);
+
+    }
+
+    @Test
+    public void testSimplecosTest90Degrees() throws Exception {
+
+        Calculator calc = new CalculatorImpl();
+        calc.push(90.0);
+        double result = calc.perform(Operation.cos);
+
+        assertNotEquals(0,result,0);
+
+    }
 }
