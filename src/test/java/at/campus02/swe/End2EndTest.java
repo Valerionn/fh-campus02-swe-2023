@@ -33,7 +33,7 @@ public class End2EndTest {
         if ("src/test/resources/test08.xml".equals(fileName)) {
             assertEquals(3, result, 0);
         } else if ("src/test/resources/test07.xml".equals(fileName)) {
-            assertEquals(5, result, 0);
+            assertEquals(6, result, 0);
         }
     }
 }
