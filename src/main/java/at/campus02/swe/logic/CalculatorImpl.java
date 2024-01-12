@@ -40,10 +40,28 @@ public class CalculatorImpl implements Calculator {
                 return Math.sin(a);
             case cos:
                 return Math.cos(a);
+            case rnd:
+                return generateRandomNumber();
         }
         return 0;
     }
 
+   public int generateRandomNumber() throws CalculatorException{
+        if (stack_.size() >= 2) {
+            double maximum = pop();
+            double minimum = pop();
+
+            if (minimum > maximum) {
+                double temp = minimum;
+                minimum = maximum;
+                maximum = temp;
+            }
+            double result = minimum + (maximum - minimum) * Math.random();
+            return (int)result;
+        } else {
+            throw new CalculatorException("Keine Range angegeben");
+        }
+    }
     @Override
     public double pop() throws CalculatorException {
         if (stack_.isEmpty())
