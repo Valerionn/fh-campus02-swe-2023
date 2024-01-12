@@ -6,6 +6,7 @@ import at.campus02.swe.Calculator;
 import at.campus02.swe.CalculatorException;
 import at.campus02.swe.Calculator.Operation;
 
+
 import static org.junit.Assert.*;
 
 public class CalculatorTest {
