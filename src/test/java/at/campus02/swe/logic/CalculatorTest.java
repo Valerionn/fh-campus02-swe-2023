@@ -7,7 +7,11 @@ import at.campus02.swe.CalculatorException;
 import at.campus02.swe.Calculator.Operation;
 
 
+import java.util.Random;
+
+import static at.campus02.swe.Calculator.Operation.rnd;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
 
 public class CalculatorTest {
 
@@ -125,4 +129,30 @@ public class CalculatorTest {
         assertNotEquals(0,result,0);
 
     }
+
+    @Test
+    public void testRandomMinMax() throws Exception {
+
+        Calculator calc = new CalculatorImpl(18);
+        calc.push(9.0);
+        calc.push(18.0);
+        double result = calc.perform(Operation.rnd);
+
+        assertEquals(9,result,0);
+
+
+    }
+    @Test
+    public void testRandomMaxMin() throws Exception {
+
+        Calculator calc = new CalculatorImpl(5);
+        calc.push(22.0);
+        calc.push(8.0);
+        double result = calc.perform(Operation.rnd);
+
+        assertEquals(10,result,0);
+
+
+    }
+
 }
