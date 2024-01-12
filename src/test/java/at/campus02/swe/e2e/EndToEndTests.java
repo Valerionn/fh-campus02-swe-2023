@@ -6,6 +6,7 @@ import at.campus02.swe.parser.Parser;
 import org.junit.Test;
 
 import java.io.File;
+import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
 
@@ -49,4 +50,15 @@ public class EndToEndTests {
 
 		assertEquals(1, result, 0);
 	}
+
+	@Test
+	public void CalculateARandomBetween7And12() throws Exception {
+		Calculator cal = new CalculatorImpl(new Random(112));
+
+		Parser parser = new Parser(cal);
+		int result = (int) parser.parse(new File("src/test/resources/e2e-test05-random.xml"));
+
+		assertEquals(11, result, 0);
+	}
+
 }

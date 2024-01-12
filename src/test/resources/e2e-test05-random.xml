@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calculation>
+    <push value="7" />
+    <push value="12" />
+    <operation value="random" />
+    <!-- expected result: 7,8,9,10,11 oder 12 -->
+</calculation>

@@ -9,6 +9,8 @@ import at.campus02.swe.Calculator;
 import at.campus02.swe.CalculatorException;
 import at.campus02.swe.Calculator.Operation;
 
+import java.util.Random;
+
 public class CalculatorTest {
 
     @Test
@@ -132,7 +134,26 @@ public class CalculatorTest {
         //verify
         assertEquals(1, result, 0);
 
+    }
+
+    @Test
+    public void testRandomOperation() throws Exception {
+
+        //setup
+        Calculator calc = new CalculatorImpl(new Random(112));
+
+        //execute
+        calc.push(4);
+        calc.push(6);
+        int result = (int) calc.perform(Operation.random);
+
+        //verify
+        assertEquals(5, result, 0);
+
+
+
 
     }
+
 
 }

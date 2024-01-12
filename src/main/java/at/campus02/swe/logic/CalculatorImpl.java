@@ -4,11 +4,21 @@ package at.campus02.swe.logic;
 import at.campus02.swe.Calculator;
 import at.campus02.swe.CalculatorException;
 
+import java.util.Random;
 import java.util.Stack;
 
 public class CalculatorImpl implements Calculator {
 
+    private Random random = new Random();
+
     private Stack<Double> stack_ = new Stack<Double>();
+
+    public CalculatorImpl() {
+    }
+
+    public CalculatorImpl(Random random) {
+        this.random = random;
+    }
 
     @Override
     public double perform(Operation op) throws CalculatorException {
@@ -46,6 +56,10 @@ public class CalculatorImpl implements Calculator {
             case cos:
                 a = pop();
                 return Math.cos(Math.toRadians(a));
+            case random:
+                b = pop();  // b = Maximum
+                a = pop();  // a = Minimum
+                return random.nextInt((int)b - (int)a) + (int)a;
             default:
                 throw new CalculatorException("Unsupported operation: " + op);
         }
