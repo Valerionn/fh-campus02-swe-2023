@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calculation>
+    <push value="90" />
+    <operation value="sin" />
+    <!-- expected result: 1 -->
+</calculation>

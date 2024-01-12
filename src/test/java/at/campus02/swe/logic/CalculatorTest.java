@@ -101,4 +101,38 @@ public class CalculatorTest {
         }
 
     }
+
+    @Test
+    public void testSinOperation() throws Exception {
+
+        //setup
+        Calculator calc = new CalculatorImpl();
+
+        //execute
+        calc.push(90.0);
+        double result = calc.perform(Operation.sin);
+
+        //verify
+        assertEquals(1, result, 0);
+
+
+    }
+
+
+    @Test
+    public void testCosOperation() throws Exception {
+
+        //setup
+        Calculator calc = new CalculatorImpl();
+
+        //execute
+        calc.push(0.0);
+        double result = calc.perform(Operation.cos);
+
+        //verify
+        assertEquals(1, result, 0);
+
+
+    }
+
 }

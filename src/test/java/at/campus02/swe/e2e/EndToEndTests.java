@@ -29,4 +29,24 @@ public class EndToEndTests {
 
 		assertEquals(-32, result, 0);
 	}
+
+	@Test
+	public void CalculateTheSinOf90Degree() throws Exception {
+		Calculator cal = new CalculatorImpl();
+
+		Parser parser = new Parser(cal);
+		double result = parser.parse(new File("src/test/resources/e2e-test03-sin.xml"));
+
+		assertEquals(1, result, 0);
+	}
+
+	@Test
+	public void CalculateTheCosOf90Degree() throws Exception {
+		Calculator cal = new CalculatorImpl();
+
+		Parser parser = new Parser(cal);
+		double result = parser.parse(new File("src/test/resources/e2e-test04-cos.xml"));
+
+		assertEquals(1, result, 0);
+	}
 }
