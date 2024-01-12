@@ -4,11 +4,22 @@ package at.campus02.swe.logic;
 import at.campus02.swe.Calculator;
 import at.campus02.swe.CalculatorException;
 
+import java.util.Random;
 import java.util.Stack;
 
 public class CalculatorImpl implements Calculator {
 
     private Stack<Double> stack_ = new Stack<Double>();
+
+    private Random random;
+
+    public CalculatorImpl(int seed) {
+        this.random = new Random(seed);
+    }
+
+    public CalculatorImpl() {
+        this.random = new Random();
+    }
 
     @Override
     public double perform(Operation op) throws CalculatorException {
@@ -37,6 +48,8 @@ public class CalculatorImpl implements Calculator {
                 return Math.sin(Math.toRadians(a));
             case cos:
                 return Math.cos(Math.toRadians(a));
+            case random:
+                return returnRandom(a,b);
         }
 
         return 0;
@@ -59,4 +72,30 @@ public class CalculatorImpl implements Calculator {
         stack_.clear();
     }
 
+    public double returnRandom (double a, double b){
+        int min;
+        int max;
+        // zwei Zahlen auf Stack pushen
+        if (a < b){
+            min = (int)a;
+            max = (int)b;}
+        else if (a > b){
+            max = (int)a;
+            min = (int)b;
+        }
+        else return (double)a;
+
+
+        int randomNr = random.nextInt(min,max);
+        return (double) randomNr;
+
+
+
+
+
+        // eine Randomzahl zwischen den 2 Zahlen generieren lassen
+    }
+
 }
+
+

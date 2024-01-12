@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calculation>
+    <push value="10" />
+    <push value="20" />
+    <operation value="random" />
+</calculation>

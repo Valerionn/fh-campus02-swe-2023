@@ -5,10 +5,13 @@ import at.campus02.swe.CalculatorException;
 import at.campus02.swe.logic.CalculatorImpl;
 import at.campus02.swe.parser.Parser;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+
+import javax.xml.stream.XMLStreamException;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+
+import static org.junit.Assert.*;
 
 public class EndToEndTest {
 
@@ -35,4 +38,24 @@ public class EndToEndTest {
       assertEquals(1, result, 0);
 
    }
-}
+
+   @Test
+   public void testRandom() throws Exception {
+      parser = new Parser(new CalculatorImpl(23));
+
+      boolean fehlgeschlagen = false;
+      int count = 0;
+
+      while (count < 15) {
+         double result = parser.parse(new File("src/test/resources/RandomTest.xml"));
+         if ((result <  10) || (result > 20)) {
+            fehlgeschlagen = true;}
+            count++;
+         }
+
+         assertFalse(fehlgeschlagen);
+
+
+      }
+   }
+
