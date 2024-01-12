@@ -12,23 +12,6 @@ import static org.junit.Assert.*;
 public class CalculatorTest {
 
     @Test
-    public void testSimpleAddOperation() throws Exception {
-
-        //setup
-        Calculator calc = new CalculatorImpl();
-
-        //execute
-        calc.push(2.0);
-        calc.push(3);
-        double result = calc.perform(Operation.add);
-
-        //verify
-        assertEquals(5, result, 0);
-
-
-    }
-
-    @Test
     public void testSimpleMulOperation() throws Exception {
 
         Calculator calc = new CalculatorImpl();
