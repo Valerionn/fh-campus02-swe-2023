@@ -4,11 +4,21 @@ package at.campus02.swe.logic;
 import at.campus02.swe.Calculator;
 import at.campus02.swe.CalculatorException;
 
+import java.util.Random;
 import java.util.Stack;
 
 public class CalculatorImpl implements Calculator {
 
     private Stack<Double> stack_ = new Stack<Double>();
+    private Random random;
+
+    public CalculatorImpl() {
+        random = new Random();
+    }
+
+    public CalculatorImpl(int seed) {
+        random = new Random(seed);
+    }
 
     @Override
     public double perform(Operation op) throws CalculatorException {
@@ -41,27 +51,27 @@ public class CalculatorImpl implements Calculator {
             case cos:
                 return Math.cos(a);
             case rnd:
-                return generateRandomNumber();
+                return generateRandomNumber(a,b);
         }
         return 0;
     }
 
-   public int generateRandomNumber() throws CalculatorException{
-        if (stack_.size() >= 2) {
-            double maximum = pop();
-            double minimum = pop();
+    public int generateRandomNumber(double a, double b) throws CalculatorException{
+        double maximum = a;
+        double minimum = b;
 
-            if (minimum > maximum) {
-                double temp = minimum;
-                minimum = maximum;
-                maximum = temp;
-            }
-            double result = minimum + (maximum - minimum) * Math.random();
-            return (int)result;
-        } else {
-            throw new CalculatorException("Keine Range angegeben");
+        if (minimum > maximum) {
+            double temp = minimum;
+            minimum = maximum;
+            maximum = temp;
         }
+
+        //double result = minimum + (maximum - minimum) * Math.random();
+
+        int result = random.nextInt((int)maximum + 1 - (int)minimum) + (int)minimum;
+        return result;
     }
+
     @Override
     public double pop() throws CalculatorException {
         if (stack_.isEmpty())
