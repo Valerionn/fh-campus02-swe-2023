@@ -1,0 +1,9 @@
+<operations>
+    <push value="1"/>
+    <push value="2"/>
+    <push value="3"/>
+    <push value="4"/>
+    <push value="2"/>
+    <operation value="skalar"/>
+
+</operations>

@@ -71,4 +71,23 @@ public class ParserTest {
         verifyNoMoreInteractions(cal);
     }
 
+    @Test
+    public void testSkalarproduct() throws Exception {
+        Calculator cal = mock(Calculator.class);
+
+        Parser parser = new Parser(cal);
+        parser.parse(new File("src/test/resources/testSkalar.xml"));
+
+        verify(cal).push(1);
+        verify(cal, times(2)).push(2);
+        verify(cal).push(3);
+        verify(cal).push(4);
+        verify(cal).perform(Operation.skalar);
+
+
+        verifyNoMoreInteractions(cal);
+    }
+
+
+
 }
