@@ -4,6 +4,8 @@ package at.campus02.swe.logic;
 import at.campus02.swe.Calculator;
 import at.campus02.swe.CalculatorException;
 
+
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Stack;
 
@@ -23,6 +25,9 @@ public class CalculatorImpl implements Calculator {
 
     @Override
     public double perform(Operation op) throws CalculatorException {
+
+        if (op == Operation.skalar)
+           return calculateSkalar();
 
         double b = pop();
         double a = pop();
@@ -60,6 +65,7 @@ public class CalculatorImpl implements Calculator {
         if (stack_.isEmpty())
             throw new CalculatorException();
         return stack_.pop();
+
     }
 
     @Override
@@ -72,7 +78,30 @@ public class CalculatorImpl implements Calculator {
         stack_.clear();
     }
 
-    public double returnRandom (double a, double b){
+
+    public int calculateSkalar () {
+        int anzVektor = stack_.pop().intValue();
+        int result = 0;
+        ArrayList<Integer> vektor1 = new ArrayList<>();
+        ArrayList<Integer> vektor2 = new ArrayList<>();
+
+        for (int i = 0; i < anzVektor*2; i++) {
+            if (i < anzVektor){
+                vektor1.add(stack_.pop().intValue());
+            }
+            else {
+                vektor2.add(stack_.pop().intValue());
+            }
+        }
+        for (int i = 0; i < anzVektor; i++) {
+            result += vektor1.get(i) * vektor2.get(i);
+        }
+
+        return result;
+  
+    }
+    
+  public double returnRandom (double a, double b){
         int min;
         int max;
         // zwei Zahlen auf Stack pushen
@@ -88,9 +117,6 @@ public class CalculatorImpl implements Calculator {
 
         int randomNr = random.nextInt(min,max);
         return (double) randomNr;
-
-
-
 
 
         // eine Randomzahl zwischen den 2 Zahlen generieren lassen

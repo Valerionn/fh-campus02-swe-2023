@@ -139,6 +139,20 @@ public class CalculatorTest {
         assertEquals(Math.cos(Math.toRadians(60)), result, 0.0001);
     }
 
+    @Test
+    public void testSkalOperation() throws CalculatorException {
+        Calculator calc = new CalculatorImpl();
+        calc.push(1);
+        calc.push(2);
+        calc.push(3);
+        calc.push(4);
+        calc.push(2);
+
+        int result = calc.calculateSkalar();
+
+        assertEquals(11, result);
+    }
+
 
     @Test
     public void testRandomNumber() throws CalculatorException {
