@@ -154,4 +154,21 @@ public class CalculatorTest {
     }
 
 
+    @Test
+    public void testRandomNumber() throws CalculatorException {
+        Calculator calc = new CalculatorImpl(23);
+
+        int count = 0;
+
+        while (count < 20) {
+            calc.push(1);
+            calc.push(2);
+            double result = calc.perform(Operation.random);
+            boolean inbound = false;
+            if (result <= 2 && result >= 1)
+                inbound = true;
+            assertEquals(inbound, true);
+            count++;
+        }
+    }
 }
