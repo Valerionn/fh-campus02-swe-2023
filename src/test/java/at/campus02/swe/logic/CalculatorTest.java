@@ -1,13 +1,12 @@
 package at.campus02.swe.logic;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 
 import at.campus02.swe.Calculator;
 import at.campus02.swe.CalculatorException;
 import at.campus02.swe.Calculator.Operation;
+
+import static org.junit.Assert.*;
 
 public class CalculatorTest {
 
@@ -151,6 +150,24 @@ public class CalculatorTest {
         int result = calc.calculateSkalar();
 
         assertEquals(11, result);
+    }
+
+    @Test
+    public void testSkalOperationNegative() throws CalculatorException {
+        Calculator calc = new CalculatorImpl();
+
+        try {
+            calc.push(3);
+            calc.pop();
+
+             calc.calculateSkalar();
+
+
+        } catch (Exception e) {
+            assertNull(e.getMessage());
+        }
+
+
     }
 
 
